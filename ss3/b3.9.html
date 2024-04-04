@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mergeArrByIndex = (...arrays) => {
+  if (arrays.length === 0) {
+    return [];
+  }
+  const maxLength = arrays.reduce((max, array) => Math.max(max, array.length), 0);
+  const result = [];
+  for (let i = 0; i < maxLength; i++) {
+    const tempArray = [];
+    arrays.forEach(array => {
+      tempArray.push(array[i]);
+    });
+    result.push(tempArray);
+  }
+
+  return result;
+};
+const arr1 = [1, 2, 3];
+const arr2 = ['a', 'b', 'c'];
+const arr3 = [true, false, true];
+
+console.log(mergeArrByIndex(arr1, arr2, arr3));
+    </script>
+</body>
+</html>
